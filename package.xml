@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package>
-    <name>Eupago_Mbway</name>
-    <version>1.0.2</version>
+    <name>Eupago_MBWAY</name>
+    <version>1.0.3</version>
     <stability>stable</stability>
     <license>GNU General Public License (GPL)</license>
     <channel>community</channel>
@@ -11,11 +11,11 @@
 &#xD;
 [EN] - Allow payments by mbway app&#xD;
 </description>
-    <notes>re-orders is now avaiable</notes>
+    <notes>added mbway template</notes>
     <authors><author><name>Eupago</name><user>eupago</user><email>suporte@eupago.pt</email></author></authors>
-    <date>2016-11-14</date>
-    <time>16:38:49</time>
-    <contents><target name="magecommunity"><dir name="Eupago"><dir name="Mbway"><dir name="Block"><dir name="Form"><file name="Mbway.php" hash="27853132998649907104c43546563bac"/></dir><dir name="Info"><file name="Mbway.php" hash="f9f3c4bc85505be3abcbe31011f68cda"/></dir></dir><dir name="Model"><file name="Mbway.php" hash="4feb7fb37bb9a008c7fd427ed5a3c9af"/></dir><dir name="controllers"><file name="CallbackController.php" hash="162e06ac5e37ae219b2ad83ff3fb38e9"/></dir><dir name="etc"><file name="config.xml" hash="4b38c359f8d9a900dc1a78c1b9ce0185"/><file name="system.xml" hash="c44f0320187747999a57205ee2e76b9d"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Eupago_Mbway.xml" hash="1a844093c055d916fc3cc16fa9c86f64"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="eupago"><dir name="mbway"><dir name="form"><file name="mbway.phtml" hash="1fa44aab0a61a78c9a2abf4604264db2"/></dir><dir name="info"><file name="mbway.phtml" hash="2ed70855f58e82278d303695d5194695"/></dir></dir></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="eupago"><dir name="mbway"><dir name="form"><file name="mbway.phtml" hash="1fa44aab0a61a78c9a2abf4604264db2"/></dir><dir name="info"><file name="mbway.phtml" hash="2486d82ad350cd29d0640ba8799280c0"/></dir></dir></dir></dir></dir></dir></dir></target></contents>
+    <date>2016-12-07</date>
+    <time>15:29:45</time>
+    <contents><target name="magecommunity"><dir name="Eupago"><dir name="Mbway"><dir name="Block"><dir name="Form"><file name="Mbway.php" hash="87f0784cd78d5ce7cfbe532133070d15"/></dir><dir name="Info"><file name="Mbway.php" hash="acadf6f16d5b118124f723ca49aa45be"/></dir></dir><dir name="Model"><file name="Mbway.php" hash="68a6d4f4072a31bd1c94f478ac6a9f17"/><dir name="System"><dir name="Config"><file name="Template.php" hash="718050382dd9d91d291e7827f3267b8e"/></dir></dir></dir><dir name="controllers"><file name="CallbackController.php" hash="162e06ac5e37ae219b2ad83ff3fb38e9"/></dir><dir name="etc"><file name="config.xml" hash="1aa33d93a198cb5ccb97233b3563e453"/><file name="system.xml" hash="033bf9badb6cde28ffb67982a3c821aa"/></dir></dir></dir></target><target name="mageetc"><dir name="modules"><file name="Eupago_Mbway.xml" hash="1a844093c055d916fc3cc16fa9c86f64"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="eupago"><dir name="mbway"><dir name="form"><file name="default.phtml" hash="2325880e1c94f851c8379996786e128f"/><file name="mbway.phtml" hash="3ca1a607601ca50e70b75ad625032cd9"/></dir><dir name="info"><file name="default.phtml" hash="df73cde94c9f2d9e189396ffe9afbaa3"/><file name="mbway.phtml" hash="cab1c28cdf664e28c496ad8ea4edc5a0"/></dir></dir></dir></dir></dir></dir></dir><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="eupago"><dir name="mbway"><dir name="form"><file name="mbway.phtml" hash="1fa44aab0a61a78c9a2abf4604264db2"/></dir><dir name="info"><file name="mbway.phtml" hash="2486d82ad350cd29d0640ba8799280c0"/></dir></dir></dir></dir></dir></dir></dir></target></contents>
     <compatible/>
     <dependencies><required><php><min>5.2.0</min><max>7.0.0</max></php></required></dependencies>
 </package>

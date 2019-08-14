@@ -1,0 +1,13 @@
+<ul id="payment_info_<?php echo $this->getMethodCode() ?>">
+    <li style="min-width: 300px;">
+	<h4>Mbway</h4>
+	<?php 
+	$mbway_data = $this->getMbwayData(); 
+	if(isset($mbway_data->pedido) && $mbway_data->pedido != ""){
+		echo $this->__('Nº Telefone: ').$mbway_data->mbway_phone_number."</br>"
+			.$this->__('Nº Pedido: ').$mbway_data->pedido."</br>".$this->__('Valor: ')
+			.number_format($mbway_data->valor,2)." EUR"; 
+	}else
+		echo $this->__('Vai receber nos seus dispositivos inscritos no MB WAY um pedido de pagamento. Para validar a compra basta aceitar e introduzir o seu PIN MB WAY.') ?>
+    </li>
+</ul>

@@ -4,7 +4,10 @@ class Eupago_Mbway_Block_Info_Mbway extends Mage_Payment_Block_Info
     protected function _construct()
     {
         parent::_construct();
-        $this->setTemplate('eupago/mbway/info/mbway.phtml');
+		if(Mage::getStoreConfig('payment/mbway/frontend_template') == 'mbway')
+			$this->setTemplate('eupago/mbway/info/mbway.phtml');
+		else
+			$this->setTemplate('eupago/mbway/info/default.phtml');
     }
     
     public function getInfo()
@@ -28,5 +31,10 @@ class Eupago_Mbway_Block_Info_Mbway extends Mage_Payment_Block_Info
     public function getMethod()
     {
         return $this->getInfo()->getMethodInstance();
+    }
+	
+	 public function getMethodCode()
+    {
+        return $this->getInfo()->getMethodInstance()->getCode();
     }
 }

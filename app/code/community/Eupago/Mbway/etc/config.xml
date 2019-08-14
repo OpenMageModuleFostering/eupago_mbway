@@ -16,13 +16,6 @@
                 <class>Eupago_Mbway_Model</class>
             </mbway>
         </models>
-		<fieldsets>
-             <sales_convert_quote_payment>
-                <mbway_phone_number>
-                    <to_order_payment>*</to_order_payment>
-                </mbway_phone_number>
-             </sales_convert_quote_payment>
-        </fieldsets>
     </global>
 	<frontend>
 		<routers>

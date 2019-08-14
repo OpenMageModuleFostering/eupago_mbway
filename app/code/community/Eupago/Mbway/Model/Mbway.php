@@ -166,7 +166,6 @@ class Eupago_Mbway_Model_Mbway extends Mage_Payment_Model_Method_Abstract{
         }
         $info = $this->getInfoInstance();
 		$info->setAdditionalInformation('mbway_phone_number', $data->getMbwayPhoneNumber());
-        //$info->setMbwayPhoneNumber($data->getMbwayPhoneNumber());
 
         return $this;
     }
@@ -189,5 +188,5 @@ class Eupago_Mbway_Model_Mbway extends Mage_Payment_Model_Method_Abstract{
 		
         return $this;
     }
- 
+	 
  }

@@ -1,7 +1,39 @@
 <ul id="payment_info_<?php echo $this->getMethodCode() ?>">
-    <li>
-	<h4>Mbway</h4>
-    <?php echo $this->__('Vai receber nos seus dispositivos inscritos no MB WAY um pedido de pagamento. Para validar a compra basta aceitar e introduzir o seu PIN MB WAY.') ?>
-	<!-- <p><?php //echo $this->__('Para saber mais acerca do mbway por favor clique ') ?><a target="blank" href="https://www.mbway.pt/">aqui</a></p> -->
+    <li style="min-width: 300px;">
+	<?php 
+	$mbway_data = $this->getMbwayData(); 
+	if(isset($mbway_data->pedido) && $mbway_data->pedido != ""){?>
+		<div align='center'>
+			<table cellpadding="0" cellspacing="0" border="0" style="width: 370px; color:#666; background-color: #f1f1f1; height: 50px; margin: 10px 0; border: 0px solid #d70510;">
+				<tbody><tr style=" font-size:small; border:0;">
+					<td style="border: 0; padding:5px; margin:0; background-color: #D80410; color: #f1f1f1; text-align: center; font-size:small;" colspan="3">Pagamento por MB Way</td>
+				</tr>
+				<tr style=" font-size:small; border:0;">
+					<td rowspan="4" style=" font-size:small;padding: 0 0 0 20px;vertical-align: middle; border:0; "><img src="<?php echo $this->getSkinUrl('images/eupago/mbway/MBWAY_RGB_positivo_s.png'); ?>" style="margin-bottom: 0px; margin-right: 5px;"></td>
+
+				</tr>
+				<tr style=" font-size:small; border:0;">
+					<td style="border:0; padding:10px 8px 0 8px;"><?php echo $this->__('Nº Telefone') ?></td>
+					<td style="border:0; padding:10px 8px 0 8px;"><?php echo $mbway_data->mbway_phone_number; ?></td>
+				</tr>
+				<tr style=" font-size:small; border:0;">
+					<td style="border:0; padding:10px 8px 0 8px;"><?php echo $this->__('Nº Pedido') ?></td>
+					<td style="border:0; padding:10px 8px 0 8px;"><?php echo $mbway_data->pedido; ?></td>
+				</tr>
+				<tr style=" font-size:small; border:0;">
+					<td style="border:0; padding:8px ; "><?php echo $this->__('Valor') ?></td>
+					<td style="border:0; padding:8px ;"><?php echo number_format($mbway_data->valor,2).' EUR'; ?> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center;padding-top:5px; font-size: xx-small;border:0; border-top: 0px solid #ddd; background-color: #fff; color: #666" colspan="3"><?php echo $this->__('Foi enviado um pedido de pagamento para o seu smartphone.') ?></td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+<?php }else{
+		echo "<h4>Mbway</h4>";
+		echo $this->__('Vai receber nos seus dispositivos inscritos no MB WAY um pedido de pagamento. Para validar a compra basta aceitar e introduzir o seu PIN MB WAY.');
+	}?>
+		
     </li>
 </ul>
