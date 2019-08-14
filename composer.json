@@ -1,0 +1,16 @@
+{
+    "name": "OpenMageModuleFostering/Eupago_MBWAY",
+    "type": "magento-module",
+    "license": "GNU-General-Public-License-(GPL)",
+    "homepage": "",
+    "description": "Modulo de pagamento para MBWAY",
+    "authors": [
+    {
+        "name": "euPago",
+        "email": "dev@eupago.pt"
+    }
+],
+    "suggest": {
+        "magento-hackathon/magento-composer-installer": "*"
+    }
+}
