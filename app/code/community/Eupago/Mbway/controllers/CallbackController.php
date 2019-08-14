@@ -3,7 +3,8 @@
 class Eupago_Mbway_CallbackController extends Mage_Core_Controller_Front_Action { // extends Mage_Payment_Model_Method_Abstract
 	
 	public function autorizeAction(){
-		
+
+
 		///// dados vindos da api para comfirmar 
 		$CallBack = $this->getRequest()->getParams();
 		$CallBack_valor = $CallBack['valor'];
@@ -11,7 +12,7 @@ class Eupago_Mbway_CallbackController extends Mage_Core_Controller_Front_Action 
 		$CallBack_chave_api = $CallBack['chave_api'];
 		$CallBack_orderId = $CallBack['identificador'];
 		$CallBack_autorizacao = $CallBack['autorizacao'];
-		$CallBack_autorizacao = $CallBack['mp'];
+		//$CallBack_autorizacao = $CallBack['mp'];
 
 		//mp
 		//pc:pt -> mbway
@@ -33,21 +34,24 @@ class Eupago_Mbway_CallbackController extends Mage_Core_Controller_Front_Action 
 		$valor_gerado = $pagamento->eupago_montante;
 
 		/////// dados do pagamento MBW
-		$pagamento = $order->getPayment();
-		$alias = $pagamento->eupago_mbw_alias;
-		$referenciaMBW = $pagamento->eupago_mbw_referencia;
+		$pagamentoMBW = $order->getPayment();
+		$alias = $pagamentoMBW->eupago_mbw_alias;
+		$referenciaMBW = $pagamentoMBW->eupago_mbw_referencia;
+		$valor_geradoMBW = $pagamentoMBW->eupago_mbw_montante;
 
 		
 		/////// gera autorizacao
 		$chave_api = Mage::getModel('mbway/process')->getConfigData('chave');
 		$autorizacao = md5(date('Y-m-d').$chave_api);
-		
+
+
 		//////// Confere dados
-		$confere_montantes = (($valor_encomenda == $valor_gerado) == $CallBack_valor ? true : false);
+		$confere_montantes = (($valor_encomenda == $valor_geradoMBW) == $CallBack_valor ? true : false);
 		$confere_autorizacao = ($autorizacao == $CallBack_autorizacao ? true : false);
-		$confere_referencia = ($referencia == $CallBack_referencia ? true : false);
+		$confere_referencia = ($referenciaMBW == $CallBack_referencia ? true : false);
 		$confere_chave_api = ($CallBack_chave_api == $chave_api ? true : false);
-		
+
+
 		////// se tudo ok, faz o update do estado da encomenda e envia um email ao cliente
 		if($confere_montantes && $confere_chave_api && $confere_referencia){ /*futuro upgrade -> $confere_autorizacao*/
 			$order->setData('state', "complete");

@@ -3,7 +3,7 @@
     <modules>
         <Eupago_Mbway>
             <active>true</active>
-            <codePool>local</codePool>
-                    </Eupago_Mbway>
+            <codePool>community</codePool>
+        </Eupago_Mbway>
     </modules>
 </config>
