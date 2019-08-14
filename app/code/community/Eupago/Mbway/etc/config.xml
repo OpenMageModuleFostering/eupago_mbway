@@ -16,6 +16,35 @@
                 <class>Eupago_Mbway_Model</class>
             </mbway>
         </models>
+		<events>
+			<sales_order_place_after>
+				<observers>
+					<eupago_mbway_order_observer>
+						<type>singleton</type>
+						<class>mbway/observer</class>
+						<method>pendingPaymentState</method>
+					</eupago_mbway_order_observer>
+				</observers>
+			</sales_order_place_after>
+			<sales_order_invoice_save_after>
+				<observers>
+					<eupago_mbway_order_observer>
+						<type>singleton</type>
+						<class>mbway/observer</class>
+						<method>sendInvoiceEmail</method>
+					</eupago_mbway_order_observer>
+				</observers>
+			</sales_order_invoice_save_after>
+		</events>
+		<sales>
+			<order>
+				<states>
+					<pending_payment>
+						<visible_on_front>1</visible_on_front>
+					</pending_payment>
+				</states>
+			</order>
+		</sales>
     </global>
 	<frontend>
 		<routers>
@@ -23,7 +52,7 @@
 				<use>standard</use>
 				<args>
 					<module>Eupago_Mbway</module>
-					<frontName>mbway</frontName>
+					<frontName>Eupago_Mbway</frontName>
 				</args>
 			</Eupago_Mbway>
 		</routers>

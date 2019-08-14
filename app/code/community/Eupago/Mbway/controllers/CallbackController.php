@@ -280,7 +280,7 @@ class Eupago_Mbway_CallbackController extends Mage_Core_Controller_Front_Action 
 		$order->setData('state', "complete");
 		$order->setStatus("processing");
 		$order->sendOrderUpdateEmail();
-		$history = $order->addStatusHistoryComment('Encomenda paga por MULTIBANCO.', false);
+		$history = $order->addStatusHistoryComment('Eupago: a referencia foi paga.', false);
 		$history->setIsCustomerNotified(true);
 		if($geraFatura)
 			$this->geraFatura($order);

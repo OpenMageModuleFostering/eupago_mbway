@@ -1,5 +1,5 @@
-<ul id="payment_info_<?php echo $this->getMethodCode() ?>">
-    <li style="min-width: 300px;">
+<div id="payment_info_<?php echo $this->getMethodCode() ?>">
+    <div style="min-width: 300px;">
 	<?php 
 	$mbway_data = $this->getMbwayData(); 
 	if(isset($mbway_data->pedido) && $mbway_data->pedido != ""){?>
@@ -34,6 +34,5 @@
 		echo "<h4>Mbway</h4>";
 		echo $this->__('Vai receber nos seus dispositivos inscritos no MB WAY um pedido de pagamento. Para validar a compra basta aceitar e introduzir o seu PIN MB WAY.');
 	}?>
-		
-    </li>
-</ul>
+    </div>
+</div>
