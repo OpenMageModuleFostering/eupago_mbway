@@ -23,7 +23,7 @@
 				<use>standard</use>
 				<args>
 					<module>Eupago_Mbway</module>
-					<frontName>Eupago</frontName>
+					<frontName>mbway</frontName>
 				</args>
 			</Eupago_Mbway>
 		</routers>
