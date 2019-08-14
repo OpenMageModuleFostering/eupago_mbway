@@ -1,13 +1,13 @@
 {
-    "name": "OpenMageModuleFostering/Eupago_MBWAY",
+    "name": "OpenMageModuleFostering/Eupago_Mbway",
     "type": "magento-module",
     "license": "GNU-General-Public-License-(GPL)",
     "homepage": "",
-    "description": "Modulo de pagamento para MBWAY",
+    "description": "Pagamento por Mbway",
     "authors": [
     {
-        "name": "euPago",
-        "email": "dev@eupago.pt"
+        "name": "Eupago",
+        "email": "suporte@eupago.pt"
     }
 ],
     "suggest": {

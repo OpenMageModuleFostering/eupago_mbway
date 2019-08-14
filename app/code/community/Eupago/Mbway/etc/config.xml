@@ -1,173 +1,53 @@
 <?xml version="1.0"?>
 <config>
     <modules>
-        <Eupago_Mbway>
-            <version>1.0.0</version>
-        </Eupago_Mbway>
+       <Eupago_Mbway>
+          <version>1.0.1</version>
+       </Eupago_Mbway>
     </modules>
-    <frontend>
-        <translate>
-            <modules>
-                <Eupago_Mbway>
-                    <files>
-                        <default>Eupago_Mbway.csv</default>
-                    </files>
-                </Eupago_Mbway>
-            </modules>
-        </translate>
-		<layout>
-			<updates>
-				<yourmodule>
-					<file>mbway.xml</file>
-				</yourmodule>
-			</updates>
-		</layout>
-		<routers>
-            <Eupago_Mbway>
-                <use>standard</use>
-                <args>
-                    <module>Eupago_Mbway</module>
-                    <frontName>Eupago</frontName>
-                </args>
-            </Eupago_Mbway>
-        </routers> 
-    </frontend>
-    <adminhtml>
-        <translate>
-            <modules>
-                <Eupago_Mbway>
-                    <files>
-                        <default>Eupago_Mbway.csv</default>
-                    </files>
-                </Eupago_Mbway>
-            </modules>
-        </translate>
-    </adminhtml>   
-    <global>		
-        <fieldsets>
-            <sales_convert_quote_payment>
-                <eupago_mbw_alias>
-                    <to_order_payment>*</to_order_payment>
-                </eupago_mbw_alias>
-                <eupago_mbw_referencia>
-                    <to_order_payment>*</to_order_payment>
-                </eupago_mbw_referencia>
-                <eupago_mbw_montante>
-                    <to_order_payment>*</to_order_payment>
-                </eupago_mbw_montante>
-            </sales_convert_quote_payment>
-			
-            <sales_convert_order_payment>
-                <eupago_mbw_alias>
-                    <to_quote_payment>*</to_quote_payment>
-                </eupago_mbw_alias>
-                <eupago_mbw_referencia>
-                    <to_quote_payment>*</to_quote_payment>
-                </eupago_mbw_referencia>
-                <eupago_mbw_montante>
-                    <to_quote_payment>*</to_quote_payment>
-                </eupago_mbw_montante>
-            </sales_convert_order_payment>
-        </fieldsets>
+    <global>
+		<blocks>
+			<mbway>
+				<class>Eupago_Mbway_Block</class>
+			</mbway>
+		</blocks>
         <models>
             <mbway>
                 <class>Eupago_Mbway_Model</class>
-                <resourceModel>mbway_mysql4</resourceModel>
             </mbway>
-            <sales>
-                <rewrite>
-                    <convert_order>Eupago_Mbway_Model_Convert_Order</convert_order>
-                    <convert_quote>Eupago_Mbway_Model_Convert_Quote</convert_quote>
-                </rewrite>
-            </sales>		
-            <mbway_mysql4>
-                <class>Eupago_Mbway_Model_Mysql4</class>
-                <entities>
-                    <mbway>
-                        <table>eupago</table>
-                    </mbway>
-                </entities>
-            </mbway_mysql4>
         </models>
-        <resources>
-            <mbway_setup>
-                <setup>
-                    <module>Eupago_Mbway</module>
-                    <class>Eupago_Mbway_Model_Mysql4_Setup</class>
-                </setup>
-                <connection>
-                    <use>core_setup</use>
-                </connection>
-            </mbway_setup>
-            <mbway_write>
-                <connection>
-                    <use>core_write</use>
-                </connection>
-            </mbway_write>
-            <mbway_read>
-                <connection>
-                    <use>core_read</use>
-                </connection>
-            </mbway_read>
-        </resources>
-        <blocks>
-            <mbway>
-                <class>Eupago_Mbway_Block</class>
-            </mbway>
-			<checkout>
-				<rewrite>
-					<checkout_onepage_success>Eupago_Mbway_Block_Success</checkout_onepage_success>
-				</rewrite>
-			</checkout>
-        </blocks>
-        <helpers>
-            <Eupago_Mbway>
-                <class>Eupago_Mbway_Helper</class>
-            </Eupago_Mbway>
-        </helpers>
-        <sales>
-            <order>
-                <statuses>
-                    <aguarda_pagamento_mbway translate="label">
-                        <label><![CDATA[MB - Aguarda Pagamento]]>
-                        </label>
-                    </aguarda_pagamento_mbway>
-                </statuses>
-                <states>
-                    <new>
-                        <statuses>
-                            <aguarda_pagamento_mbway/>
-                        </statuses>
-                    </new>
-                </states>
-            </order>
-        </sales>
-        <events>
-            <sales_order_save_after> 
-                <observers>
-                    <payone_save_status>
-                        <type>singleton</type>
-                        <class>mbway/process</class>
-                        <method>orderObserver</method>
-                    </payone_save_status>
-                </observers>
-            </sales_order_save_after>
-        </events>
-       
+		<fieldsets>
+             <sales_convert_quote_payment>
+                <mbway_phone_number>
+                    <to_order_payment>*</to_order_payment>
+                </mbway_phone_number>
+             </sales_convert_quote_payment>
+        </fieldsets>
     </global>
-
+	<frontend>
+		<routers>
+			<Eupago_Mbway>
+				<use>standard</use>
+				<args>
+					<module>Eupago_Mbway</module>
+					<frontName>Eupago</frontName>
+				</args>
+			</Eupago_Mbway>
+		</routers>
+	</frontend>
     <default>
         <payment>
             <mbway>
-                <active>0</active>
-                <model>mbway/gerarRef</model>
-                <title>Mbway</title>
-                <sort_order>1</sort_order>
-                <allowspecific>0</allowspecific>
-                <chave></chave>
-                <mensagem>Pagamentos por MBWAY</mensagem>
-                <payment_action>order</payment_action>
+                <active>1</active>
+                <model>mbway/mbway</model>
+                <order_status>1</order_status>
+                <login backend_model="adminhtml/system_config_backend_encrypted"/>
+                <order_status>pending</order_status>
+                <title>Eupago Mbway</title>
+                <cgi_url>https://seguro.eupago.pt/eupagov5.wsdl</cgi_url>
+                <debug>0</debug>
+				<payment_action>order</payment_action>
             </mbway>
-        </payment>
-    </default> 
+         </payment>
+    </default>
 </config>
